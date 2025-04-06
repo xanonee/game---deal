@@ -1,120 +1,47 @@
-/* Reset et polices */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Police Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
-/* Couleurs */
-:root {
-    --primary: #6e45e2;
-    --secondary: #88d3ce;
-    --dark: #1a1a2e;
-    --light: #f8f9fa;
+/* Styles Globaux */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #1a1a2e, #16213e);
 }
 
-/* Barre de navigation */
-header {
-    background: var(--dark);
-    padding: 1rem 2rem;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    color: white;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-}
-
-.search-bar {
-    display: flex;
-}
-
-.search-bar input {
-    padding: 0.5rem;
-    border: none;
-    border-radius: 4px 0 0 4px;
-}
-
-.search-bar button {
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: 0 1rem;
-    border-radius: 0 4px 4px 0;
-}
-
-/* Section Hero */
-.hero {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                url('https://via.placeholder.com/1200x400?text=Banniere+Jeux');
-    background-size: cover;
-    color: white;
-    text-align: center;
-    padding: 4rem;
-}
-
-/* Grille de jeux */
-.game-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-}
-
+/* Cartes de Jeux */
 .game-card {
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.game-card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
+.game-card:hover {
+    border-color: var(--primary);
 }
 
-.game-card h3 {
-    padding: 0.5rem 1rem;
-}
-
-.game-card p {
-    padding: 0 1rem 1rem;
-    color: var(--primary);
-    font-weight: bold;
-}
-
-.platform {
-    display: block;
-    padding: 0.5rem 1rem;
-    background: var(--dark);
+/* Boutons */
+.btn-buy {
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
     color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-/* Pied de page */
-footer {
-    background: var(--dark);
-    color: white;
-    text-align: center;
-    padding: 1rem;
+.btn-buy:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(110, 69, 226, 0.4);
+}
+
+/* Vidéo Responsive */
+.video-container {
+    box-shadow: 0 0 30px rgba(110, 69, 226, 0.6);
 }

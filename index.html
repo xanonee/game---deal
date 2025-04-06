@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameDeals PRO | Le meilleur des jeux gratuits</title>
+    <title>Next-Gen GameDeals | Jeux Gratuits & Promos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         :root {
             --primary: #6e45e2;
@@ -13,123 +13,135 @@
             --dark: #1a1a2e;
             --light: #f8f9fa;
             --accent: #ff6b6b;
-            --text: #333;
-            --bg: white;
         }
         
-        [data-theme="dark"] {
-            --dark: #f8f9fa;
-            --light: #1a1a2e;
-            --text: #f8f9fa;
-            --bg: #121212;
-        }
-
-        /* Animations */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--dark);
+            color: white;
+            margin: 0;
+            padding: 0;
         }
         
-        /* Votre CSS existant amélioré */
+        /* Header Néon */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 1rem 2rem;
+            box-shadow: 0 0 20px rgba(110, 69, 226, 0.5);
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #ff6b6b, #6e45e2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Cartes de Jeux 3D */
+        .game-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
         .game-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 15px 30px rgba(110, 69, 226, 0.4);
         }
         
-        /* Nouveaux styles pour les vidéos */
+        /* Vidéo intégrée */
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
+            padding-bottom: 56.25%;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
 <body>
-    <!-- Nouveau Mega Menu -->
-    <nav class="mega-menu">
-        <!-- Votre menu amélioré ici -->
-    </nav>
+    <!-- Header Animé -->
+    <header class="animate__animated animate__fadeInDown">
+        <div class="container">
+            <h1 class="logo"><i class="fas fa-gamepad"></i> GameDeals PRO</h1>
+            <div class="search-bar">
+                <input type="text" placeholder="Rechercher un jeu...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
 
-    <!-- Carrousel vidéo -->
-    <section class="video-carousel">
+    <!-- Bannière Principale -->
+    <section class="hero animate__animated animate__zoomIn">
         <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/LembwpcD1Yg?autoplay=1&mute=1&controls=0&loop=1" frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
 
-    <!-- Filtres avancés -->
-    <div class="game-filters">
-        <div class="filter-group">
-            <h4>Plateforme <i class="fas fa-chevron-down"></i></h4>
-            <!-- Options de filtres -->
+    <!-- Grille de Jeux -->
+    <main class="game-grid">
+        <!-- Carte Cyberpunk 2077 -->
+        <div class="game-card animate__animated animate__fadeInLeft">
+            <div class="game-media">
+                <img src="https://image.api.playstation.com/vulcan/ap/rnd/202111/0222/6fJaLIr7U8Y2LrLQIbBTXxQZ.jpg" alt="Cyberpunk 2077">
+                <div class="price-tag">
+                    <span class="original-price">€59.99</span>
+                    <span class="price">€29.99</span>
+                    <span class="discount">-50%</span>
+                </div>
+            </div>
+            <div class="game-info">
+                <h3>Cyberpunk 2077</h3>
+                <div class="platforms">
+                    <span><i class="fab fa-windows"></i></span>
+                    <span><i class="fab fa-playstation"></i></span>
+                    <span><i class="fab fa-xbox"></i></span>
+                </div>
+                <p>Plongez dans Night City, une mégalopole obsédante...</p>
+                <button class="btn-buy">Voir l'offre</button>
+            </div>
         </div>
-    </div>
 
-    <!-- Grille de jeux dynamique -->
-    <main id="game-library">
-        <!-- Généré par JavaScript -->
+        <!-- Carte Fortnite -->
+        <div class="game-card animate__animated animate__fadeInRight">
+            <div class="game-media">
+                <img src="https://image.api.playstation.com/vulcan/ap/rnd/202010/0222/7eN6DGdmbsRTH1I1QwX3zX5d.jpg" alt="Fortnite">
+                <div class="price-tag free">
+                    GRATUIT
+                </div>
+            </div>
+            <div class="game-info">
+                <h3>Fortnite</h3>
+                <div class="platforms">
+                    <span><i class="fab fa-windows"></i></span>
+                    <span><i class="fab fa-playstation"></i></span>
+                    <span><i class="fab fa-xbox"></i></span>
+                    <span><i class="fab fa-nintendo-switch"></i></span>
+                </div>
+                <p>Battle Royale légendaire avec constructions et skins cosmétiques...</p>
+                <button class="btn-download">Télécharger</button>
+            </div>
+        </div>
     </main>
 
-    <script>
-        // Base de données des jeux (exemple)
-        const games = [
-            {
-                id: 1,
-                title: "Cyberpunk 2077",
-                price: 29.99,
-                originalPrice: 59.99,
-                discount: 50,
-                isFree: false,
-                platforms: ["pc", "ps5", "xbox"],
-                developer: "CD Projekt Red",
-                releaseDate: "2020-12-10",
-                rating: 86,
-                description: "Un RPG futuriste en monde ouvert...",
-                video: "dQw4w9WgXcQ",
-                image: "https://image.api.playstation.com/...jpg"
-            },
-            // 99+ autres jeux...
-        ];
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 GameDeals PRO | Tous droits réservés</p>
+    </footer>
 
-        // Fonction pour générer les cartes
-        function renderGames() {
-            const container = document.getElementById('game-library');
-            container.innerHTML = games.map(game => `
-                <div class="game-card animate__animated animate__fadeIn">
-                    <div class="game-media">
-                        ${game.video ? `
-                            <div class="video-thumb" onclick="openVideo('${game.video}')">
-                                <i class="fas fa-play"></i>
-                                <img src="${game.image}" alt="${game.title}">
-                            </div>
-                        ` : `<img src="${game.image}" alt="${game.title}">`}
-                        <div class="price-tag ${game.isFree ? 'free' : ''}">
-                            ${game.isFree ? 'GRATUIT' : `€${game.price}`}
-                        </div>
-                    </div>
-                    <div class="game-info">
-                        <h3>${game.title}</h3>
-                        <div class="meta">
-                            <span class="rating" style="--rating: ${game.rating}%"></span>
-                            <span class="developer">${game.developer}</span>
-                        </div>
-                        <p class="description">${game.description.substring(0, 100)}...</p>
-                        <div class="platforms">
-                            ${game.platforms.map(p => `<span class="${p}"><i class="fab fa-${p === 'xbox' ? 'xbox' : p === 'ps5' ? 'playstation' : 'windows'}"></i></span>`).join('')}
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // Initialisation
-        document.addEventListener('DOMContentLoaded', () => {
-            renderGames();
-            initDarkMode();
-        });
-    </script>
+    <!-- Scripts -->
     <script src="games.js"></script>
-<script src="script.js"></script> <!-- Pour les fonctionnalités -->
+    <script src="script.js"></script>
 </body>
 </html>

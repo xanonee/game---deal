@@ -3,205 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEGA GameDeals | Le meilleur des jeux gratuits</title>
+    <title>Ultra GameDeals | Jeux Gratuits & Promos Premium</title>
+    
+    <!-- Intégration Font Awesome + Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #00adee;  /* Bleu Steam */
-            --secondary: #ff4500; /* Orange Epic */
-            --dark: #1b2838;     /* Fond Steam */
-            --light: #e5e5e5;
-            --accent: #ffcc00;   /* Jaune GOG */
-        }
-        
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: url('https://cdn.akamai.steamstatic.com/store/home/store_home_share.jpg') fixed;
-            background-size: cover;
-            margin: 0;
-            color: white;
-        }
-        
-        /* Header style Epic/Steam */
-        .main-header {
-            background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
-            backdrop-filter: blur(10px);
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 90%;
-            z-index: 100;
-        }
-        
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 900;
-            background: linear-gradient(to right, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(0, 173, 238, 0.3);
-        }
-        
-        /* Mega menu style GOG */
-        .mega-menu {
-            display: flex;
-            gap: 30px;
-        }
-        
-        .mega-menu a {
-            color: white;
-            text-decoration: none;
-            font-weight: 700;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: all 0.3s;
-        }
-        
-        .mega-menu a:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-3px);
-        }
-        
-        /* Game cards style Steam */
-        .game-card {
-            background: rgba( 0, 0, 0, 0.6 );
-            border-radius: 10px;
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-            position: relative;
-        }
-        
-        .game-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px var(--primary);
-        }
-        
-        .game-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: var(--secondary);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-        
-        /* Bouton style Epic */
-        .epic-btn {
-            background: var(--secondary);
-            border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            color: white;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .epic-btn:hover {
-            background: #ff5500;
-            box-shadow: 0 0 20px rgba(255, 69, 0, 0.6);
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon + SEO -->
+    <link rel="icon" href="assets/favicon.ico">
+    <meta name="description" content="Le meilleur des jeux gratuits et promos sur PC, PlayStation, Xbox et Nintendo">
+    <meta property="og:image" content="https://votresite.com/assets/og-image.jpg">
+    
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- CSS Secondaire (Themes) -->
+    <link rel="stylesheet" href="css/themes/dark.css" id="theme-css">
+    
+    <!-- Scripts de Pré-chargement -->
+    <script src="js/preload.js" defer></script>
 </head>
 <body>
-    <!-- Header style Epic Games -->
-    <header class="main-header">
-        <div class="logo">MEGA GAMEDEALS</div>
-        <nav class="mega-menu">
-            <a href="#"><i class="fas fa-home"></i> Accueil</a>
-            <a href="#"><i class="fas fa-tag"></i> Promos</a>
-            <a href="#"><i class="fas fa-gamepad"></i> Jeux gratuits</a>
-            <a href="#"><i class="fas fa-crown"></i> Premium</a>
-        </nav>
+    <!-- Header -->
+    <header id="main-header" class="sticky-header">
+        <div class="container">
+            <div class="logo-container">
+                <a href="/" class="logo">
+                    <img src="assets/logo.svg" alt="Ultra GameDeals" width="180">
+                </a>
+                <div class="theme-switcher">
+                    <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+                </div>
+            </div>
+            
+            <!-- Navigation Principale -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#featured"><i class="fas fa-fire"></i> Tendances</a></li>
+                    <li><a href="#deals"><i class="fas fa-percentage"></i> Promos</a></li>
+                    <li><a href="#free"><i class="fas fa-gift"></i> Gratuits</a></li>
+                    <li class="dropdown">
+                        <a href="#"><i class="fas fa-filter"></i> Plateformes <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#pc"><i class="fab fa-windows"></i> PC</a>
+                            <a href="#ps5"><i class="fab fa-playstation"></i> PS5</a>
+                            <a href="#xbox"><i class="fab fa-xbox"></i> Xbox</a>
+                            <a href="#switch"><i class="fab fa-nintendo-switch"></i> Switch</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Barre de Recherche Avancée -->
+            <div class="search-container">
+                <form id="search-form">
+                    <input type="text" placeholder="Rechercher un jeu..." autocomplete="off">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+                <div class="search-suggestions"></div>
+            </div>
+            
+            <!-- Compte Utilisateur -->
+            <div class="user-actions">
+                <a href="#login" class="login-btn"><i class="fas fa-user"></i> Connexion</a>
+                <a href="#cart" class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
     </header>
-
-    <!-- Hero section style Steam -->
-    <section class="hero" style="height: 100vh; display: flex; align-items: center; padding: 0 10%;">
-        <div style="max-width: 600px; backdrop-filter: blur(5px); background: rgba(0,0,0,0.7); padding: 40px; border-radius: 15px;">
-            <h1 style="font-size: 3.5rem; margin-bottom: 20px; font-family: 'Montserrat', sans-serif;">JEUX DU MOMENT</h1>
-            <p style="font-size: 1.2rem; margin-bottom: 30px;">Découvrez les meilleures offres du gaming PC et console</p>
-            <button class="epic-btn">Explorer maintenant</button>
-        </div>
-    </section>
-
-    <!-- Game grid style Steam -->
-    <section style="padding: 100px 10%; background: rgba(27, 40, 56, 0.95);">
-        <h2 style="font-size: 2.5rem; margin-bottom: 50px; font-family: 'Montserrat', sans-serif;">NOS TOP JEUX</h2>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px;">
-            <!-- Carte Cyberpunk 2077 -->
-            <div class="game-card">
-                <div class="game-badge">-50%</div>
-                <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg" alt="Cyberpunk 2077" style="width: 100%; height: 150px; object-fit: cover;">
-                <div style="padding: 20px;">
-                    <h3 style="margin: 0 0 10px;">Cyberpunk 2077</h3>
-                    <div style="display: flex; gap: 10px; margin-bottom: 15px;">
-                        <span style="background: #1a1a2e; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem;"><i class="fab fa-windows"></i> PC</span>
-                        <span style="background: #1a1a2e; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem;"><i class="fab fa-playstation"></i> PS5</span>
+    
+    <!-- Bannière Hero -->
+    <section class="hero-banner">
+        <div class="hero-slider">
+            <!-- Slide 1 -->
+            <div class="slide active" style="background-image: url('assets/hero/cyberpunk-bg.jpg')">
+                <div class="slide-content">
+                    <h2>Cyberpunk 2077</h2>
+                    <p>Découvrez Night City comme jamais avec -60% cette semaine !</p>
+                    <div class="pricing">
+                        <span class="original-price">€69.99</span>
+                        <span class="discounted-price">€27.99</span>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <span style="text-decoration: line-through; color: #aaa;">€59.99</span>
-                        <span style="font-weight: bold; font-size: 1.2rem;">€29.99</span>
-                    </div>
-                    <button class="epic-btn" style="width: 100%; margin-top: 15px;">Ajouter au panier</button>
+                    <a href="#cyberpunk" class="cta-button">Voir l'offre <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             
-            <!-- Carte Elden Ring -->
-            <div class="game-card">
-                <div class="game-badge">NOUVEAU</div>
-                <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg" alt="Elden Ring" style="width: 100%; height: 150px; object-fit: cover;">
-                <div style="padding: 20px;">
-                    <h3 style="margin: 0 0 10px;">Elden Ring</h3>
-                    <div style="display: flex; gap: 10px; margin-bottom: 15px;">
-                        <span style="background: #1a1a2e; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem;"><i class="fab fa-windows"></i> PC</span>
-                        <span style="background: #1a1a2e; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem;"><i class="fab fa-xbox"></i> XBOX</span>
-                    </div>
-                    <div style="font-weight: bold; font-size: 1.2rem;">€49.99</div>
-                    <button class="epic-btn" style="width: 100%; margin-top: 15px;">Ajouter au panier</button>
+            <!-- Slide 2 -->
+            <div class="slide" style="background-image: url('assets/hero/fortnite-bg.jpg')">
+                <div class="slide-content">
+                    <h2>Fortnite Chapter 5</h2>
+                    <p>Battle Pass gratuit ce mois-ci !</p>
+                    <a href="#fortnite" class="cta-button">Jouer Gratuitement <i class="fas fa-gamepad"></i></a>
                 </div>
             </div>
             
-            <!-- Carte Fortnite -->
-            <div class="game-card">
-                <div class="game-badge">GRATUIT</div>
-                <img src="https://cdn2.unrealengine.com/egs-fortnite-ch4s3-1920x1080-1920x1080-6a6529a2d5ed.jpg" alt="Fortnite" style="width: 100%; height: 150px; object-fit: cover;">
-                <div style="padding: 20px;">
-                    <h3 style="margin: 0 0 10px;">Fortnite</h3>
-                    <div style="display: flex; gap: 10px; margin-bottom: 15px;">
-                        <span style="background: #1a1a2e; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem;"><i class="fab fa-windows"></i> PC</span>
-                        <span style="background: #1a1a2e; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem;"><i class="fab fa-nintendo-switch"></i> SWITCH</span>
-                    </div>
-                    <div style="font-weight: bold; font-size: 1.2rem; color: var(--accent);">GRATUIT</div>
-                    <button class="epic-btn" style="width: 100%; margin-top: 15px; background: var(--accent);">Jouer maintenant</button>
-                </div>
-            </div>
+            <!-- Contrôles du Slider -->
+            <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+            <div class="slider-dots"></div>
         </div>
     </section>
-
-    <!-- Footer style Steam -->
-    <footer style="background: #171a21; padding: 50px 10%; text-align: center;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 30px;">
-                <a href="#" style="color: #b8b6b4; text-decoration: none;">À propos</a>
-                <a href="#" style="color: #b8b6b4; text-decoration: none;">Carrières</a>
-                <a href="#" style="color: #b8b6b4; text-decoration: none;">Support</a>
-                <a href="#" style="color: #b8b6b4; text-decoration: none;">Conditions</a>
-            </div>
-            <div style="color: #666; font-size: 0.9rem;">
-                © 2024 MEGA GameDeals. Tous droits réservés. Toutes les marques sont la propriété de leurs détenteurs respectifs.
-            </div>
-        </div>
-    </footer>
+    
+    <!-- Suite du contenu dans les parties suivantes -->
+    <main id="main-content">
+        <!-- À compléter avec les sections suivantes -->
+    </main>
+    
+    <!-- Scripts en fin de body -->
+    <script src="js/main.js" defer></script>
+    <script src="js/slider.js" defer></script>
+    <script src="js/search.js" defer></script>
 </body>
 </html>

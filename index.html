@@ -4,18 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameDeals | Jeux Gratuits</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Barre de navigation -->
     <header>
-        <h1>🎮 GameDeals</h1>
-        <p>Les meilleurs jeux gratuits du moment !</p>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-gamepad"></i>
+                <span>GameDeals</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Jeux Gratuits</a></li>
+                <li><a href="#">Promotions</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Rechercher un jeu...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </nav>
     </header>
-    <main>
-        <section class="game">
-            <h2>Jeux populaires</h2>
-            <p>Bientôt une liste ici...</p>
-        </section>
+
+    <!-- Section Hero -->
+    <section class="hero">
+        <h1>Découvrez les Meilleurs Jeux Gratuits</h1>
+        <p>Des offres exclusives mises à jour quotidiennement.</p>
+    </section>
+
+    <!-- Grille de jeux -->
+    <main class="game-grid">
+        <div class="game-card">
+            <img src="https://via.placeholder.com/300x150?text=Jeu+1" alt="Jeu 1">
+            <h3>Cyberpunk 2077</h3>
+            <p>Gratuit cette semaine</p>
+            <span class="platform"><i class="fab fa-windows"></i> PC</span>
+        </div>
+        <div class="game-card">
+            <img src="https://via.placeholder.com/300x150?text=Jeu+2" alt="Jeu 2">
+            <h3>Fortnite</h3>
+            <p>Toujours gratuit</p>
+            <span class="platform"><i class="fab fa-xbox"></i> Xbox</span>
+        </div>
     </main>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>© 2024 GameDeals. Tous droits réservés.</p>
+    </footer>
 </body>
 </html>

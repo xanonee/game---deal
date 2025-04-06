@@ -3,55 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameDeals | Jeux Gratuits</title>
+    <title>GameDeals PRO | Le meilleur des jeux gratuits</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        :root {
+            --primary: #6e45e2;
+            --secondary: #88d3ce;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --accent: #ff6b6b;
+            --text: #333;
+            --bg: white;
+        }
+        
+        [data-theme="dark"] {
+            --dark: #f8f9fa;
+            --light: #1a1a2e;
+            --text: #f8f9fa;
+            --bg: #121212;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Votre CSS existant amélioré */
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        /* Nouveaux styles pour les vidéos */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+        }
+    </style>
 </head>
 <body>
-    <!-- Barre de navigation -->
-    <header>
-        <nav>
-            <div class="logo">
-                <i class="fas fa-gamepad"></i>
-                <span>GameDeals</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">Jeux Gratuits</a></li>
-                <li><a href="#">Promotions</a></li>
-            </ul>
-            <div class="search-bar">
-                <input type="text" placeholder="Rechercher un jeu...">
-                <button><i class="fas fa-search"></i></button>
-            </div>
-        </nav>
-    </header>
+    <!-- Nouveau Mega Menu -->
+    <nav class="mega-menu">
+        <!-- Votre menu amélioré ici -->
+    </nav>
 
-    <!-- Section Hero -->
-    <section class="hero">
-        <h1>Découvrez les Meilleurs Jeux Gratuits</h1>
-        <p>Des offres exclusives mises à jour quotidiennement.</p>
+    <!-- Carrousel vidéo -->
+    <section class="video-carousel">
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+        </div>
     </section>
 
-    <!-- Grille de jeux -->
-    <main class="game-grid">
-        <div class="game-card">
-            <img src="https://via.placeholder.com/300x150?text=Jeu+1" alt="Jeu 1">
-            <h3>Cyberpunk 2077</h3>
-            <p>Gratuit cette semaine</p>
-            <span class="platform"><i class="fab fa-windows"></i> PC</span>
+    <!-- Filtres avancés -->
+    <div class="game-filters">
+        <div class="filter-group">
+            <h4>Plateforme <i class="fas fa-chevron-down"></i></h4>
+            <!-- Options de filtres -->
         </div>
-        <div class="game-card">
-            <img src="https://via.placeholder.com/300x150?text=Jeu+2" alt="Jeu 2">
-            <h3>Fortnite</h3>
-            <p>Toujours gratuit</p>
-            <span class="platform"><i class="fab fa-xbox"></i> Xbox</span>
-        </div>
+    </div>
+
+    <!-- Grille de jeux dynamique -->
+    <main id="game-library">
+        <!-- Généré par JavaScript -->
     </main>
 
-    <!-- Pied de page -->
-    <footer>
-        <p>© 2024 GameDeals. Tous droits réservés.</p>
-    </footer>
+    <script>
+        // Base de données des jeux (exemple)
+        const games = [
+            {
+                id: 1,
+                title: "Cyberpunk 2077",
+                price: 29.99,
+                originalPrice: 59.99,
+                discount: 50,
+                isFree: false,
+                platforms: ["pc", "ps5", "xbox"],
+                developer: "CD Projekt Red",
+                releaseDate: "2020-12-10",
+                rating: 86,
+                description: "Un RPG futuriste en monde ouvert...",
+                video: "dQw4w9WgXcQ",
+                image: "https://image.api.playstation.com/...jpg"
+            },
+            // 99+ autres jeux...
+        ];
+
+        // Fonction pour générer les cartes
+        function renderGames() {
+            const container = document.getElementById('game-library');
+            container.innerHTML = games.map(game => `
+                <div class="game-card animate__animated animate__fadeIn">
+                    <div class="game-media">
+                        ${game.video ? `
+                            <div class="video-thumb" onclick="openVideo('${game.video}')">
+                                <i class="fas fa-play"></i>
+                                <img src="${game.image}" alt="${game.title}">
+                            </div>
+                        ` : `<img src="${game.image}" alt="${game.title}">`}
+                        <div class="price-tag ${game.isFree ? 'free' : ''}">
+                            ${game.isFree ? 'GRATUIT' : `€${game.price}`}
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>${game.title}</h3>
+                        <div class="meta">
+                            <span class="rating" style="--rating: ${game.rating}%"></span>
+                            <span class="developer">${game.developer}</span>
+                        </div>
+                        <p class="description">${game.description.substring(0, 100)}...</p>
+                        <div class="platforms">
+                            ${game.platforms.map(p => `<span class="${p}"><i class="fab fa-${p === 'xbox' ? 'xbox' : p === 'ps5' ? 'playstation' : 'windows'}"></i></span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', () => {
+            renderGames();
+            initDarkMode();
+        });
+    </script>
 </body>
 </html>
